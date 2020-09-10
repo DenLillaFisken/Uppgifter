@@ -15,7 +15,12 @@ namespace Uppgift1
             Random rnd = new Random();
             int temperature = rnd.Next(-20, 35);  // temperatur mellan -20 till 35 celcius.
 
+            Console.WriteLine(temperature);
+
             CreateHostBuilder(args).Build().Run();
+
+
+
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
