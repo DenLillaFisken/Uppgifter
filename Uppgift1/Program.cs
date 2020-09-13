@@ -4,6 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Serilog;
+using Serilog.Events;
+using Uppgift1.Models;
 
 namespace Uppgift1
 {
@@ -11,23 +14,41 @@ namespace Uppgift1
     {
         public static void Main(string[] args)
         {
-            //skapar ett slumpartat värde mellan -20 och 35.
-            Random rnd = new Random();
-            int temperature = rnd.Next(-20, 35);  // temperatur mellan -20 till 35 celcius.
 
-            Console.WriteLine(temperature);
+            Log.Logger = new LoggerConfiguration()
+            .MinimumLevel.Debug()
+            .MinimumLevel.Override("Microsoft", LogEventLevel.Warning)
+            .Enrich.FromLogContext()
+            .WriteTo.File(@"c:\workerservice2\log\LogFile.txt")
+            .CreateLogger();
 
-            CreateHostBuilder(args).Build().Run();
+            
 
-
+            try
+            {
+                Log.Information("The service started...");
+                CreateHostBuilder(args).Build().Run();
+                return;
+            }
+            catch (Exception ex)
+            {
+                Log.Fatal(ex, "The service terminated unexcpectedly.");
+                return;
+            }
+            finally
+            {
+                Log.CloseAndFlush();
+            }
 
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
+                .UseSerilog() 
+                .UseWindowsService()
                 .ConfigureServices((hostContext, services) =>
                 {
                     services.AddHostedService<Worker>();
                 });
-    }
+}
 }
