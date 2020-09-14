@@ -12,8 +12,6 @@ namespace Uppgift1
 {
     public class Worker : BackgroundService
     {
-        
-
         //Ilogger är en loggningsfunktion, bara inom klassen, kan inte ändras
         private readonly ILogger<Worker> _logger;
         private int _temperature;
@@ -25,11 +23,9 @@ namespace Uppgift1
 
         public override Task StartAsync(CancellationToken cancellationToken)
         {
-            //_logger.LogInformation("The service started.");
+            _logger.LogInformation("The service started.");
             return base.StartAsync(cancellationToken);
-
         }
-
         public override Task StopAsync(CancellationToken cancellationToken)
         {
             _logger.LogInformation("The service stopped.");

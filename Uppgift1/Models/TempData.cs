@@ -7,7 +7,6 @@ namespace Uppgift1.Models
     class TempData
     {
         public int Temperature { get; set; }
-
         public int GenerateRandomTemp()
         {
             Random rnd = new Random();
@@ -15,19 +14,15 @@ namespace Uppgift1.Models
             
             return Temperature;
         }
-
         public string TempControl(int temp)
         {
             string answer;
 
             if(temp > 25)
-            {
                 answer = "The limit has been exceeded!";
-            }
+
             else
-            {
                 answer = "";
-            }
 
             return answer;
         }

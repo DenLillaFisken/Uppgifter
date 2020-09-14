@@ -6,9 +6,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Serilog;
 using Serilog.Events;
-using Uppgift1.Models;
 
-namespace Uppgift1
+namespace UPG1_VG
 {
     public class Program
     {
@@ -18,18 +17,18 @@ namespace Uppgift1
             .MinimumLevel.Debug()
             .MinimumLevel.Override("Microsoft", LogEventLevel.Warning)
             .Enrich.FromLogContext()
-            .WriteTo.File(@"c:\workerservice2\log\LogFile.txt")
+            .WriteTo.File(@"c:\workerservice3\log\LogFile.txt")
             .CreateLogger();
 
             try
             {
-                //Log.Information("The service started...");
+                Log.Information("Starting WorkerService...");
                 CreateHostBuilder(args).Build().Run();
                 return;
             }
             catch (Exception ex)
             {
-                Log.Fatal(ex, "The service terminated unexcpectedly.");
+                Log.Fatal(ex, $"WorkerService terminated unexpectedly. Error:: {ex.Message}");
                 return;
             }
             finally
@@ -41,11 +40,11 @@ namespace Uppgift1
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
-                .UseSerilog() 
+                .UseSerilog()
                 .UseWindowsService()
                 .ConfigureServices((hostContext, services) =>
                 {
                     services.AddHostedService<Worker>();
                 });
-}
+    }
 }
