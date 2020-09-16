@@ -5,24 +5,25 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Uppgift2.Controls"
              mc:Ignorable="d" 
-             d:DesignHeight="70" d:DesignWidth="160">
+             d:DesignHeight="100" d:DesignWidth="160">
     <Grid>
+       
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="50"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="35" />
-            <RowDefinition Height="35" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
         </Grid.RowDefinitions>
+        <Button x:Name="messageBtn" FontSize="14" Padding="20,15,0,10" HorizontalContentAlignment="Left">
+            <StackPanel>
+                <TextBlock x:Name="contactName"  Margin="0,0,0,10" Grid.Column="0" VerticalAlignment="center" />
+                <TextBlock x:Name="message" Grid.Row="1" FontSize="8" Foreground="Black" Grid.Column="0" VerticalAlignment="center"/>
+                <TextBlock x:Name="date" Grid.Row="0" Margin="0,0,0,10" Grid.Column="1" VerticalAlignment="center"/>
+                <TextBlock x:Name="time" Grid.Row="1" FontSize="8" Foreground="Black" Grid.Column="1" VerticalAlignment="center"/>
+            </StackPanel>
+        </Button>
 
-        <StackPanel Grid.Column="0" VerticalAlignment="center" Margin="10,0,0,0">
-            <TextBlock x:Name="contactName"  Margin="0,0,0,10" />
-            <TextBlock x:Name="message" Grid.Row="1" FontSize="8" Foreground="Black"/>
-        </StackPanel>
-        <StackPanel Grid.Column="1" VerticalAlignment="center" Margin="10,0,0,0">
-            <TextBlock x:Name="date" Grid.Row="0" Margin="0,0,0,10" />
-            <TextBlock x:Name="time" Grid.Row="1" FontSize="8" Foreground="Black"/>
-        </StackPanel>
     </Grid>
 </UserControl>

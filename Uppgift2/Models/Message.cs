@@ -15,5 +15,8 @@ namespace Uppgift2.Models
         public string EmailMessage { get; set; }
         public string EmailDate { get; set; }
         public string EmailTime { get; set; }
+        public string MessageBtn { get; set; }
+
+
     }
-}
+    }

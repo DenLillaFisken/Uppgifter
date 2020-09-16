@@ -13,7 +13,7 @@
             <DataTemplate x:Name="ContactViewTemplate" DataType="{x:Type models:ContactModel}">
                 <views:ContactViewModel DataContext="{Binding}"/>
             </DataTemplate>
-            <DataTemplate x:Name="MessageViewTemplate" DataType="{x:Type models:ContactModel}">
+            <DataTemplate x:Name="MessageViewTemplate" DataType="{x:Type models:MessageModel}">
                 <views:MessageViewModel DataContext="{Binding}"/>
             </DataTemplate>
         </Window.Resources>

@@ -25,10 +25,16 @@ namespace Uppgift2
         {
             InitializeComponent();
 
+        }
+
+        private void btnMessages_Click(object sender, RoutedEventArgs e)
+        {
+            DataContext = new MessageModel();
+            messageList.Children.Clear();
             var messages = new List<Message>(){
-                new Message {FirstName="Alex", LastName="Johansson", EmailMessage="Ett meddelande", EmailDate = "2020-20-05", EmailTime = "10:48"},
-                new Message {FirstName="Alex", LastName="Johansson", EmailMessage="Ett meddelande", EmailDate = "2020-20-05", EmailTime = "10:48"},
-                new Message {FirstName="Alex", LastName="Johansson", EmailMessage="Ett meddelande", EmailDate = "2020-20-05", EmailTime = "10:48"}
+                new Message {FirstName="Alex", LastName="Johansson", EmailMessage="Ett meddelande", EmailDate = "2020-20-05", EmailTime = "10:48", MessageBtn = "test1"},
+                new Message {FirstName="Alex", LastName="Johansson", EmailMessage="Ett meddelande", EmailDate = "2020-20-05", EmailTime = "10:48", MessageBtn = "test2"},
+                new Message {FirstName="Alex", LastName="Johansson", EmailMessage="Ett meddelande", EmailDate = "2020-20-05", EmailTime = "10:48", MessageBtn = "test3"}
             };
 
             foreach (var message in messages)
@@ -38,34 +44,43 @@ namespace Uppgift2
                     ContactName = message.FullName,
                     Message = message.EmailMessage,
                     Date = message.EmailDate,
-                    Time = message.EmailTime
+                    Time = message.EmailTime,
+                    MessageBtn = message.MessageBtn,
                 });
-            }
-        }
 
-        private void btnMessages_Click(object sender, RoutedEventArgs e)
-        {
-            DataContext = new ContactModel();
+                //generera en knapp-funktion
+                
+                //knappfunktionen ska skriva ut en textsträng i "message" 
+                //nedan är fel syntax?
+                // message.Text ="By default, a TextBlock provides no UI beyond simply displaying its contents.";
+
+
+            }
+
+
         }
 
         private void btnContacts_Click(object sender, RoutedEventArgs e)
         {
-            DataContext = new MessageModel();
+            messageList.Children.Clear();
+            DataContext = new ContactModel();
         }
-
-        private void btnSettings_Click(object sender, RoutedEventArgs e)
-        {
-            DataContext = new CalendarModel();
-        }
-
-        private void btnTasks_Click(object sender, RoutedEventArgs e)
-        {
-            DataContext = new TaskModel();
-        }
-
         private void btnCalendar_Click(object sender, RoutedEventArgs e)
         {
+            messageList.Children.Clear();
+            DataContext = new CalendarModel();
+        }
+        private void btnTasks_Click(object sender, RoutedEventArgs e)
+        {
+            messageList.Children.Clear();
+            DataContext = new TaskModel();
+        }
+        private void btnSettings_Click(object sender, RoutedEventArgs e)
+        {
+            messageList.Children.Clear();
             DataContext = new SettingModel();
         }
+
+       
     }
 }
