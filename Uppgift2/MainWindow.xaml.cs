@@ -32,9 +32,9 @@ namespace Uppgift2
             DataContext = new MessageModel();
             messageList.Children.Clear();
             var messages = new List<Message>(){
-                new Message {FirstName="Alex", LastName="Johansson", EmailMessage="Ett meddelande", EmailDate = "2020-20-05", EmailTime = "10:48", MessageBtn = "test1"},
-                new Message {FirstName="Alex", LastName="Johansson", EmailMessage="Ett meddelande", EmailDate = "2020-20-05", EmailTime = "10:48", MessageBtn = "test2"},
-                new Message {FirstName="Alex", LastName="Johansson", EmailMessage="Ett meddelande", EmailDate = "2020-20-05", EmailTime = "10:48", MessageBtn = "test3"}
+                new Message {FirstName="Alex", LastName="Johansson", EmailMessage="Ett meddelande 1", EmailDate = "2020-20-05", EmailTime = "10:48"},
+                new Message {FirstName="Alex", LastName="Johansson", EmailMessage="Ett meddelande 2", EmailDate = "2020-20-05", EmailTime = "10:48"},
+                new Message {FirstName="Alex", LastName="Johansson", EmailMessage="Ett meddelande 3", EmailDate = "2020-20-05", EmailTime = "10:48"}
             };
 
             foreach (var message in messages)
@@ -45,7 +45,6 @@ namespace Uppgift2
                     Message = message.EmailMessage,
                     Date = message.EmailDate,
                     Time = message.EmailTime,
-                    MessageBtn = message.MessageBtn,
                 });
 
                 //generera en knapp-funktion

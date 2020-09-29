@@ -42,11 +42,8 @@ namespace Uppgift2.Controls
             get { return time.Text; }
             set { time.Text = value; }
         }
-        public string MessageBtn
-        {
-            get { return messageBtn.Name; }
-            set { messageBtn.Name = value; }
+
+
         }
 
-    }
 }

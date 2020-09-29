@@ -9,7 +9,7 @@
         xmlns:views="clr-namespace:Uppgift2.Views"
         
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="1020">
+        Title="MainWindow" Height="500" Width="1020">
        <Window.Resources>
         <DataTemplate x:Name="ContactViewTemplate" DataType="{x:Type models:ContactModel}">
             <views:ContactViewModel DataContext="{Binding}" />
@@ -36,46 +36,41 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.Column="0" Background="blue"/>
+        <Grid Grid.Column="0" Background="#FF5684FF"/>
 
-        <Grid x:Name="mainMenu_Grid" Grid.Column="1" Background="#FFC083FF">
+        <Grid x:Name="mainMenu_Grid" Grid.Column="1" Background="#FF9FC0F1">
             <Grid.RowDefinitions>
-                <RowDefinition Height="100"/>
+                <RowDefinition Height="140"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <StackPanel Grid.Row="0">
-                <Ellipse Height="75" Width="75" Fill="#FFC32323" />
-                <TextBlock Margin="15,0,0,0" Text="Namn Efternamn" />
+                <Ellipse Height="75" Width="75" Fill="White" HorizontalAlignment="center" Margin="0, 20, 0, 10" />
+                <TextBlock Text="Firstname Lastname" Foreground="White" HorizontalAlignment="center" FontSize="14"/>
             </StackPanel>
-            <StackPanel Grid.Row="1">
+            <StackPanel Grid.Row="1" VerticalAlignment="Bottom">
                 <Button x:Name="btnContacts" Click="btnContacts_Click"  Background="Transparent" BorderThickness="0" FontFamily="Century Gothic" FontSize="14" Foreground="white" Padding="20,15,0,10" HorizontalContentAlignment="Left">
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE716;" FontSize="18" />
-                        <TextBlock Margin="15,0,0,0" Text="Contacts" />
+                        <TextBlock Margin="15,0,0,0" Text="Contacts" FontSize="18" />
                     </StackPanel>
                 </Button>
                 <Button x:Name="btnMessages" Click="btnMessages_Click"  Background="Transparent" BorderThickness="0" FontFamily="Century Gothic" FontSize="14" Foreground="white" Padding="20,15,0,10" HorizontalContentAlignment="Left">
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE715;" FontSize="18" />
-                        <TextBlock Margin="15,0,0,0" Text="Messages" />
+                        <TextBlock Margin="15,0,0,0" Text="Messages" FontSize="18" />
                     </StackPanel>
                 </Button>
                 <Button x:Name="btnCalendar" Click="btnCalendar_Click"  Background="Transparent" BorderThickness="0" FontFamily="Century Gothic" FontSize="14" Foreground="white" Padding="20,15,0,10" HorizontalContentAlignment="Left">
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE715;" FontSize="18" />
-                        <TextBlock Margin="15,0,0,0" Text="Calendar" />
+                        <TextBlock Margin="15,0,0,0" Text="Calendar" FontSize="18" />
                     </StackPanel>
                 </Button>
                 <Button x:Name="btnTasks" Click="btnTasks_Click"  Background="Transparent" BorderThickness="0" FontFamily="Century Gothic" FontSize="14" Foreground="white" Padding="20,15,0,10" HorizontalContentAlignment="Left">
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE715;" FontSize="18" />
-                        <TextBlock Margin="15,0,0,0" Text="Tasks" />
+                        <TextBlock Margin="15,0,0,0" Text="Tasks" FontSize="18"/>
                     </StackPanel>
                 </Button>
                 <Button x:Name="btnSettings" Click="btnSettings_Click"  Background="Transparent" BorderThickness="0" FontFamily="Century Gothic" FontSize="14" Foreground="white" Padding="20,15,0,10" HorizontalContentAlignment="Left">
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE715;" FontSize="18" />
-                        <TextBlock Margin="15,0,0,0" Text="Settings" />
+                        <TextBlock Margin="15,0,0,0" Text="Settings" FontSize="18"/>
                     </StackPanel>
                 </Button>
             </StackPanel>
@@ -84,6 +79,10 @@
         <ContentControl x:Name="test" Grid.Column="2" Content="{Binding}" />
 
         <Grid Grid.Column="2" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
             <StackPanel x:Name="messageList" Grid.Row="1"/>
         </Grid>
         <Grid Grid.Column="3">
