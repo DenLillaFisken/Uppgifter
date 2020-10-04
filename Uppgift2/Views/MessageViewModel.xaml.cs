@@ -21,6 +21,7 @@ namespace Uppgift2.Views
         public MessageViewModel()
         {
             InitializeComponent();
+            
         }
     }
 }
