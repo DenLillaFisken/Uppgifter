@@ -13,6 +13,7 @@ namespace UPG1_VG
     {
         public static void Main(string[] args)
         {
+            //från serilog, skapar loggfil lokalt
             Log.Logger = new LoggerConfiguration()
             .MinimumLevel.Debug()
             .MinimumLevel.Override("Microsoft", LogEventLevel.Warning)
@@ -40,8 +41,11 @@ namespace UPG1_VG
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
+                //skapar loggfil
                 .UseSerilog()
+                //skapar windowsapplikationen
                 .UseWindowsService()
+                //konfigurerar applikationen
                 .ConfigureServices((hostContext, services) =>
                 {
                     services.AddHostedService<Worker>();

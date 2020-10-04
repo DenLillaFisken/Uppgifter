@@ -19,10 +19,13 @@ namespace UPG1_VG
         private readonly ILogger<Worker> _logger;
         private readonly string _url = "http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=2dc4bdc55e1ef3875e3db242278e1794";
 
+        //för att kunna skicka/ta emot http requests
         private HttpClient _client;
+        //resultatet av requstet
         private HttpResponseMessage _result;
         private string _getJson;
 
+        //konstruktor
         public Worker(ILogger<Worker> logger)
         {
             _logger = logger;
@@ -66,7 +69,7 @@ namespace UPG1_VG
                 }
 
 
-                await Task.Delay(60*1000, stoppingToken);
+                await Task.Delay(1000, stoppingToken);
             }
         }
     }
